@@ -9,13 +9,15 @@ class PenjualanDetailSeeder extends Seeder
 {
     public function run(): void
     {
-        for($i=1;$i<=30;$i++){
-            DB::table('t_penjualan_detail')->insert([
-                'penjualan_id'=>rand(1,10),
-                'barang_id'=>rand(1,15),
-                'harga'=>rand(2000,10000),
-                'jumlah'=>rand(1,5)
-            ]);
+        for ($p = 1; $p <= 10; $p++) { // Untuk setiap penjualan (10)
+            for ($d = 1; $d <= 3; $d++) { // Tambahkan 3 barang
+                DB::table('t_penjualan_detail')->insert([
+                    'penjualan_id' => $p,
+                    'barang_id' => rand(1, 15),
+                    'harga' => 15000,
+                    'jumlah' => rand(1, 5)
+                ]);
+            }
         }
     }
 }
